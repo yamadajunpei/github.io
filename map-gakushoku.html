@@ -7,13 +7,6 @@
 
 <title>学食への行き方</title>
 
-<!-- Google mapのCSS -->
-<style>
-#maps{
-	height:300px;
-	width:500px
-}
-</style>
 
 <!-- google mapを表示する為に必要なjabascript  keyにはAPIキーを書き換えてjsファイルを読み込みます。 -->
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDWDvm4o3S44AABTNnRNNMOUql45_7DPjY&callback=initMap" async></script>
@@ -23,73 +16,16 @@
 
 <h2>学食への行き方</h2>
 
-<div class="centering_parent">
-    <div class="centering_item">
-
-<!-- google mapを表示するdiv -->
-<div id="maps"></div>
-
-<script>
-</script>
-
-<!-- Google Map を表示するjavascript -->
-<script>
-
-
-function initMap() {
-	//現在位置を許可させ、位置を取得する javascript 参考URL：http://taitan916.info/blog/?p=2280
-	var ret = new Array();
-	if( navigator.geolocation ){
-		navigator.geolocation.getCurrentPosition(
-		function( pos ){ //位置取得成功
-			ret['long'] = pos.coords.longitude; //経度
-			ret['lat'] = pos.coords.latitude; //緯度
-
-			//位置を指定して、Google mapに表示する javascript 参考URL：https://www.granfairs.com/blog/staff/google-maps-api-01
-			var mapPosition = {}
-			mapPosition["lat"] = ret['lat'];
-			mapPosition["lng"] = ret['long'];
-			var mapArea = document.getElementById('maps');
-			var mapOptions = {
-				center: mapPosition,
-				zoom: 16,
-			};
-			var map = new google.maps.Map(mapArea, mapOptions);
-
-			//現在地にマーカーを付けます。参考URL：https://developers.google.com/maps/documentation/javascript/markers?hl=ja
-			var marker = new google.maps.Marker({
-			    position: mapPosition,
-			    title:"Your location"
-			});
-			marker.setMap(map);
-
-			result( ret );
-		},
-		function( error ){ //失敗
-			switch( error.code ){
-				case 1: ret['msg'] = "位置情報の利用が許可されていません"; break;
-				case 2: ret['msg'] = "デバイスの位置が判定できません"; break;
-				case 3: ret['msg'] = "タイムアウトしました"; break;
-			}
-			result( ret );
-		}
-		);
-	} else { //使用不可のブラウザ
-		ret['msg'] = 'このブラウザでは位置取得が出来ません。';
-		result( ret );
-	}
-	//コンソールにログを出力 ※本番環境ではログを出さないので、消しましょう。
-	function result( ret ){
-		console.log( ret );
-	}
-}
-</script>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VmXHW4z9mZo" title="YouTube video player" frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    </div>
-</div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1187.8912249362031!2d140.38269214112813!3d37.359337817025306!2m3!1f0
+	     !2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x60206b038a9e938f%3A0x98703ed3b1bde737!2z5pys6aSo!3m2!1d37.35947799999999
+	     6!2d140.38218329999998!4m5!1s0x60206b03c2f4e4bd%3A0x18d9e708c0c12316!2z44CSOTYzLTExNjUg56aP5bO255yM6YOh5bGx5biC55Sw5p2R55S
+	     65b6z5a6a5Lit5rKz5Y6fIDUw5ZGo5bm06KiY5b-16aSoKOODj-ODg-ODiE5lKQ!3m2!1d37.358489999999996!2d140.38351459999998!5e0!3m2!1sja
+	     !2sjp!4v1670484995604!5m2!1sja!2sjp" 
+	width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 <div id="menu">
 <ul>
